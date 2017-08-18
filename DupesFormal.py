@@ -1,6 +1,7 @@
 """Duplicate image removal."""
 
 import numpy as np
+import numpy.linalg as alg
 import scipy.misc as sp
 import os
 
@@ -23,11 +24,14 @@ def dupes():
     final_list = []
 
     #Path processing start
-    path1 = input("Initial Path1 --> ")
-    path2 = input("Check Path2 --> ")
+    try:
+        path1 = input("Initial Path1 --> ")
+        path2 = input("Check Path2 --> ")
 
-    str_path1 = str(path1)
-    str_path2 = str(path2)
+        str_path1 = str(path1)
+        str_path2 = str(path2)
+    except:
+        print('Faulty paths.')
 
     files1 = os.listdir(str_path1)
     files2 = os.listdir(str_path2)
@@ -63,4 +67,4 @@ def dupes():
 
     print("Duplicates Removed!")
 
-dupes()
+#dupes()
